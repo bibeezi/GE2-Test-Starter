@@ -15,6 +15,14 @@ public class NematodeSchool : MonoBehaviour
     void Awake()
     {
         // Put your code here
+        for(var i = 0; i < count; i++) {
+            int x = Random.Range(-radius, radius);
+            int y = Random.Range(-radius, radius);
+            int z = Random.Range(-radius, radius);
+            float rotationY = Random.Range(0, 1) == 0 ? -(Random.value) : Random.value;
+
+            GameObject newNematode = Instantiate(prefab, new Vector3(x, y, z), new Quaternion(transform.rotation.x, rotationY, transform.rotation.z, 1));
+        }
     }
 
     // Update is called once per frame

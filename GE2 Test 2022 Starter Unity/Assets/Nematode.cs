@@ -20,7 +20,7 @@ public class Nematode : MonoBehaviour
             segment.transform.position = transform.position - (transform.forward * i);
         }
 
-
+        
     }
 
 
