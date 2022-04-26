@@ -32,6 +32,7 @@ public class ObstacleAvoidance : SteeringBehaviour
     {
         StartCoroutine(UpdateFrontFeelers());
         StartCoroutine(UpdateSideFeelers());
+        weight = 20f;
     }
 
     public void OnDrawGizmos()

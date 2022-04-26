@@ -39,6 +39,8 @@ public class Nematode : MonoBehaviour
         noiseWanderHoriz = transform.GetChild(0).gameObject.AddComponent<NoiseWander>();
 
         noiseWanderVert.axis = NoiseWander.Axis.Vertical;
+        noiseWanderVert.weight = 5f;
+        
         noiseWanderHoriz.axis = NoiseWander.Axis.Horizontal;
     }
 
