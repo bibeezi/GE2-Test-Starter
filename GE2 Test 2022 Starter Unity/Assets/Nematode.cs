@@ -13,7 +13,7 @@ public class Nematode : MonoBehaviour
     void Awake()
     {        
         // Put your code here!
-        length = Random.Range(2, 7);
+        length = Random.Range(2, 20);
 
         for(var i = 0; i < length; i++) {
             GameObject segment = Instantiate(spherePrefab, transform.position, transform.rotation, gameObject.transform);
