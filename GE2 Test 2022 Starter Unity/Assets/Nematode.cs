@@ -8,6 +8,7 @@ public class Nematode : MonoBehaviour
     public GameObject spherePrefab;
     NoiseWander noiseWanderVert;
     NoiseWander noiseWanderHoriz;
+    public Gradient gradient;
     public Material material;
 
     void Awake()
@@ -18,6 +19,7 @@ public class Nematode : MonoBehaviour
         for(var i = 0; i < length; i++) {
             GameObject segment = Instantiate(spherePrefab, transform.position, transform.rotation, gameObject.transform);
             segment.transform.position = transform.position - (transform.forward * i);
+            segment.GetComponent<Renderer>().material.SetColor("_Color", gradient.Evaluate((1.0f / length) * (i + 1.0f)));
 
             if(i <= length / 2) {
                 float scale = (1.0f / (length / 2)) * ((float)i + 1.0f);
