@@ -10,6 +10,26 @@ public class NematodeSchool : MonoBehaviour
     public int radius = 50;
     
     public int count = 10;
+    public GameObject healthPrefab;
+    public GameObject ammoPrefab;
+    public int ammoLength = 50;
+    public int healthLength = 50;
+
+    IEnumerator CreateAmmo() {
+        yield return new WaitForSeconds(1);
+
+        while(ammoLength < 50) {
+            
+        }
+    }
+
+    IEnumerator CreateHealth() {
+        yield return new WaitForSeconds(1);
+
+        while(healthLength < 50) {
+            // Instantiate(spherePrefab, transform.position, transform.rotation, gameObject.transform);
+        }
+    }
 
     // Start is called before the first frame update
     void Awake()
@@ -23,6 +43,11 @@ public class NematodeSchool : MonoBehaviour
 
             Instantiate(prefab, new Vector3(x, y, z), new Quaternion(transform.rotation.x, rotationY, transform.rotation.z, 1));
         }
+    }
+
+    void OnEnable() {
+        StartCoroutine(CreateAmmo());
+        StartCoroutine(CreateHealth());
     }
 
     // Update is called once per frame
