@@ -6,8 +6,8 @@ public class Nematode : MonoBehaviour
 {
     public int length = 5;
     public GameObject spherePrefab;
-    // public float distance = 1;
-
+    NoiseWander noiseWanderVert;
+    NoiseWander noiseWanderHoriz;
     public Material material;
 
     void Awake()
@@ -29,6 +29,15 @@ public class Nematode : MonoBehaviour
                 segment.transform.localScale = new Vector3(scale, scale, segment.transform.localScale.z);
             }
         }
+
+        transform.GetChild(0).gameObject.AddComponent<Boid>();
+        transform.GetChild(0).gameObject.AddComponent<Constrain>();
+        transform.GetChild(0).gameObject.AddComponent<ObstacleAvoidance>();
+        noiseWanderVert = transform.GetChild(0).gameObject.AddComponent<NoiseWander>();
+        noiseWanderHoriz = transform.GetChild(0).gameObject.AddComponent<NoiseWander>();
+
+        noiseWanderVert.axis = NoiseWander.Axis.Vertical;
+        noiseWanderHoriz.axis = NoiseWander.Axis.Horizontal;
     }
 
 
