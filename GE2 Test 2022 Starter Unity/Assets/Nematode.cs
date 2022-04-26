@@ -19,13 +19,13 @@ public class Nematode : MonoBehaviour
             GameObject segment = Instantiate(spherePrefab, transform.position, transform.rotation, gameObject.transform);
             segment.transform.position = transform.position - (transform.forward * i);
 
-            if(i < length / 2) {
-                float scale = (1.0f / (length / 2)) * i;
+            if(i <= length / 2) {
+                float scale = (1.0f / (length / 2)) * ((float)i + 1.0f);
                 segment.transform.localScale = new Vector3(scale, scale, segment.transform.localScale.z);
             }
             
             if(i > length / 2) {
-                float scale = (1.0f / (length / 2)) * (length - i);
+                float scale = (1.0f / (length / 2)) * ((length + 1) - ((float)i + 1.0f));
                 segment.transform.localScale = new Vector3(scale, scale, segment.transform.localScale.z);
             }
         }
